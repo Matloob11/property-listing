@@ -1,0 +1,16 @@
+[Unit]
+Description=A7 Property Listing New
+After=network.target mysql.service mariadb.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/a7-listing-v2
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node /opt/a7-listing-v2/server/index.js
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Property Listing</title>
+    <style>
+      html,body,#root{min-height:100%;margin:0;background:#f6f3ec}
+      .gate{min-height:100vh;display:grid;place-content:center;justify-items:center;gap:28px;padding:2rem 1.4rem 3rem;background:radial-gradient(ellipse 62% 46% at 50% 40%,rgba(201,162,77,.16),transparent 62%),#f6f3ec}
+      .gate-orb{position:relative;width:136px;height:136px}
+      .gate-orbit{position:absolute;inset:0;width:100%;height:100%}
+      .gate-orbit-a{animation:gate-spin 1.35s linear infinite}
+      .gate-orbit-b{animation:gate-spin-rev 2.35s linear infinite}
+      .gate-orbit-track,.gate-orbit-bar,.gate-orbit-inner{fill:none}
+      .gate-orbit-track{stroke:rgba(201,162,77,.22);stroke-width:1.5}
+      .gate-orbit-bar{stroke:#c9a24d;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:92 235}
+      .gate-orbit-inner{stroke:#2a2218;stroke-width:1.7;stroke-linecap:round;stroke-dasharray:48 216}
+      .gate-mark{position:absolute;inset:50%;width:60px;height:60px;margin:-30px 0 0 -30px;border-radius:14px;background:#1c1712;border:1.5px solid #c9a24d;color:#c9a24d;display:grid;place-content:center;justify-items:center;box-shadow:0 14px 32px rgba(28,23,18,.2);animation:gate-pulse 2.2s ease-in-out infinite}
+      .gate-mark svg{width:24px;height:10px;margin-bottom:-1px}
+      .gate-mark b{font:700 15px/1 Poppins,Segoe UI,sans-serif;letter-spacing:.12em}
+      .gate-copy{display:grid;justify-items:center;gap:6px;text-align:center}
+      .gate-copy em{font:600 10px/1 Poppins,Segoe UI,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:#c9a24d}
+      .gate-copy strong{font:600 30px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.1em;text-transform:uppercase;color:#1c1712}
+      .gate-copy p{margin:4px 0 0;color:#8a7d68;font:500 13px Poppins,Segoe UI,sans-serif}
+      @keyframes gate-spin{to{transform:rotate(360deg)}}
+      @keyframes gate-spin-rev{to{transform:rotate(-360deg)}}
+      @keyframes gate-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+    </style>
+    <link rel="preload" as="image" href="/hero/dubai-marina.jpg" />
+    <link rel="preload" as="image" href="/studio/residential.jpg" />
+    <link rel="preload" as="image" href="/studio/commercial.jpg" />
+    <link rel="preload" as="image" href="/studio/rental.jpg" />
+    <link rel="preload" as="image" href="/studio/sale.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://api.bitrix24.com/api/v1/"></script>
+    <script>
+      (function wakeBitrix() {
+        if (window.BX24 && typeof BX24.init === "function") {
+          try { BX24.init(function () {}); } catch (e) {}
+          return;
+        }
+        setTimeout(wakeBitrix, 30);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <div class="gate" role="status" aria-live="polite" aria-busy="true">
+        <div class="gate-orb" aria-hidden="true">
+          <svg class="gate-orbit gate-orbit-a" viewBox="0 0 120 120">
+            <circle class="gate-orbit-track" cx="60" cy="60" r="52" />
+            <circle class="gate-orbit-bar" cx="60" cy="60" r="52" />
+          </svg>
+          <svg class="gate-orbit gate-orbit-b" viewBox="0 0 120 120">
+            <circle class="gate-orbit-inner" cx="60" cy="60" r="42" />
+          </svg>
+          <span class="gate-mark">
+            <svg viewBox="0 0 40 16" fill="none">
+              <path d="M3 13.5 20 3l17 10.5" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+            <b>A7</b>
+          </span>
+        </div>
+        <div class="gate-copy">
+          <em>A7 Group</em>
+          <strong>Property Listing</strong>
+          <p>Opening the desk</p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

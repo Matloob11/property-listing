@@ -1,0 +1,9 @@
+node_modules/
+client/dist/
+data/
+uploads/
+.env
+*.log
+.DS_Store
+_tmp*
+Aila-Shehzadi-ad-leads.pdf
